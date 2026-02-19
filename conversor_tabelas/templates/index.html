@@ -3,41 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conversor Hospitalar</title>
+    <title>Conversor de Tabelas - Transforme Textos em Excel</title>
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
     <div class="container">
         <header>
             <h1>📄 Conversor de Tabelas</h1>
-            <p>Transforme textos brutos em arquivos Excel estruturados</p>
+            <p>Transforme Textos em Excel</p>
         </header>
-        
-        <textarea id="rawText" placeholder="Cole o texto do PDF ou sistema aqui..."></textarea>
-                
-        <select id="tableType">
-            <option value="auto">Detecção Automática</option>
-            <option value="tipo1">Tipo 1 (Item e Código | Desc | Valor R$ -> Código| Item | Valor R$)</option>
-            <option value="tipo2">Tipo 2 (Código | Item | Valor R$)</option>
-            <option value="tipo3">Tipo 3 (Código | Item)</option>
-            <option value="tipo4">Tipo 4 (Item | Desc | Valor R$)</option>
-            <option value="tipo5">Tipo 5 (Item | Código)</option>
-            <option value="tipo6">Tipo 6 (Item | Valor R$ )</option>
-            <option value="tipo7">Tipo 7 (Código | Item | Valor)</option>
-        </select>
-            <button onclick="processText()" class="btn-primary">Processar Dados</button>
+
+        <div class="input-section">
+            <textarea id="rawText" placeholder="Cole o texto do PDF ou sistema aqui..."></textarea>
+            
+            <div class="controls">
+                <select id="tableType">
+                    <option value="auto">🔍 Detecção Automática</option>
+                    <option value="tipo1">Tipo 1 (Item e Código | Desc | Valor R$)</option>
+                    <option value="tipo2">Tipo 2 (Código | Item | Valor R$)</option>
+                    <option value="tipo3">Tipo 3 (Código | Item)</option>
+                    <option value="tipo4">Tipo 4 (Item | Desc | Valor R$)</option>
+                    <option value="tipo5">Tipo 5 (Item | Código)</option>
+                    <option value="tipo6">Tipo 6 (Item | Valor R$)</option>
+                    <option value="tipo7">Tipo 7 (Código | Item | Valor)</option>
+                </select>
+                <button onclick="processText()" class="btn-primary">⚡ Processar Dados</button>
+            </div>
         </div>
 
-        <div id="resultArea" class="hidden">
+        <div id="resultArea" class="hidden result-section">
             <div class="table-header">
-                <h3>Pré-visualização</h3>
-                <button onclick="downloadExcel()" class="btn-success">📥 Baixar Excel</button>
+                <div class="header-info">
+                    <h3>Pré-visualização</h3>
+                    <span id="rowCount" class="badge">Total de linhas: 0</span>
+                </div>
+                <div class="button-group">
+                    <button onclick="copyTable()" class="btn-info">📋 Copiar Dados</button>
+                    <button onclick="downloadExcel()" class="btn-success">📥 Baixar Excel</button>
+                </div>
             </div>
             <div class="table-wrapper">
                 <table id="previewTable"></table>
             </div>
         </div>
     </div>
+
     <script src="/static/js/main.js"></script>
 </body>
 </html>

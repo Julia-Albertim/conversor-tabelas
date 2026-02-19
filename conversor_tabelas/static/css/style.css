@@ -1,13 +1,320 @@
-body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f4f7f6; color: #333; margin: 0; padding: 20px; }
-.container { max-width: 1000px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
-header { text-align: center; margin-bottom: 30px; }
-textarea { width: 100%; height: 200px; padding: 15px; border: 2px solid #ddd; border-radius: 8px; resize: vertical; box-sizing: border-box; }
-.controls { display: flex; gap: 15px; margin: 20px 0; }
-select, button { padding: 12px 20px; border-radius: 6px; border: 1px solid #ddd; cursor: pointer; }
-.btn-primary { background: #007bff; color: white; border: none; flex-grow: 1; font-weight: bold; }
-.btn-success { background: #28a745; color: white; border: none; font-weight: bold; }
-.hidden { display: none; }
-.table-wrapper { overflow-x: auto; margin-top: 20px; border: 1px solid #eee; }
-table { width: 100%; border-collapse: collapse; }
-th, td { padding: 12px; text-align: left; border-bottom: 1px solid #eee; }
-th { background: #f8f9fa; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    /* Fundo verde clarinho da imagem */
+    background-color: #e6ffda; 
+    min-height: 100vh;
+    padding: 20px;
+    color: #3e4095; /* Azul marinho para textos */
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(62, 64, 149, 0.15);
+    overflow: hidden;
+}
+
+header {
+    /* Azul Marinho do menu principal */
+    background: #3e4095;
+    color: white;
+    padding: 40px 30px;
+    text-align: center;
+    /* Detalhe em Verde Lima */
+    border-bottom: 5px solid #8cc63f;
+}
+
+header h1 {
+    font-size: 2.2em;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+}
+
+header p {
+    font-size: 1.05em;
+    opacity: 0.95;
+    font-weight: 300;
+}
+
+.input-section {
+    padding: 30px;
+    background: #fdfdfd;
+    border-bottom: 1px solid #e6ffda;
+}
+
+textarea {
+    width: 100%;
+    height: 180px;
+    padding: 16px;
+    border: 2px solid #e6ffda;
+    border-radius: 10px;
+    resize: vertical;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #8cc63f;
+    box-shadow: 0 0 0 3px rgba(140, 198, 63, 0.1);
+}
+
+.controls {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+select {
+    flex: 1;
+    min-width: 250px;
+    padding: 12px 16px;
+    border: 2px solid #e6ffda;
+    border-radius: 10px;
+    font-size: 14px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #3e4095;
+}
+
+select:focus {
+    outline: none;
+    border-color: #3e4095;
+    box-shadow: 0 0 0 3px rgba(62, 64, 149, 0.1);
+}
+
+button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary {
+    /* Verde Lima para o botão principal */
+    background: #8cc63f;
+    color: white;
+    flex: 1;
+    min-width: 150px;
+}
+
+.btn-primary:hover {
+    background: #7ab334;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(140, 198, 63, 0.3);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.btn-info {
+    /* Azul marinho secundário */
+    background: #3e4095;
+    color: white;
+}
+
+.btn-info:hover {
+    background: #2e2f75;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(62, 64, 149, 0.25);
+}
+
+.btn-success {
+    /* Verde mais escuro do banner */
+    background: #5d9741;
+    color: white;
+}
+
+.btn-success:hover {
+    background: #4a7a34;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(93, 151, 65, 0.25);
+}
+
+.hidden {
+    display: none !important;
+}
+
+.result-section {
+    padding: 30px;
+}
+
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.header-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-info h3 {
+    font-size: 1.4em;
+    color: #3e4095;
+    font-weight: 600;
+}
+
+.badge {
+    background: #8cc63f;
+    color: white;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    border: 1px solid #e6ffda;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Calibri', 'Segoe UI', sans-serif;
+    font-size: 11pt;
+    background-color: transparent;
+}
+
+thead {
+    background: #3e4095;
+    position: sticky;
+    top: 0;
+}
+
+th {
+    padding: 14px 16px;
+    text-align: left;
+    color: white;
+    font-weight: 600;
+    background-color: transparent;
+    border: none;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+}
+
+td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #e6ffda;
+    background-color: transparent;
+    color: #444;
+}
+
+tbody tr {
+    transition: all 0.2s ease;
+}
+
+tbody tr:hover {
+    background-color: #f4ffef; /* Verde bem clarinho no hover */
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    header {
+        padding: 30px 20px;
+    }
+
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    .input-section,
+    .result-section {
+        padding: 20px;
+    }
+
+    .table-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .button-group {
+        width: 100%;
+    }
+
+    .button-group button {
+        flex: 1;
+        min-width: 100px;
+    }
+
+    .controls {
+        flex-direction: column;
+    }
+
+    select,
+    .btn-primary {
+        width: 100%;
+    }
+
+    th, td {
+        padding: 10px 12px;
+        font-size: 0.9em;
+    }
+
+    .badge {
+        font-size: 0.8em;
+        padding: 4px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    header p {
+        font-size: 0.95em;
+    }
+
+    textarea {
+        height: 150px;
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 8px 10px;
+        font-size: 0.85em;
+    }
+}

@@ -6,7 +6,7 @@ def process(text):
 
     return [
         {
-            "Procedimento": m[0].strip(),
+            "Item": m[0].strip(),
             "Valor": f"R$ {m[1]}"
         }
         for m in matches
