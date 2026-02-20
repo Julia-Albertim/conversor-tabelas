@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, jsonify, send_file
 import os
-from processors import table1, table2, table3, table4, table5, table6, table7, detector
+from processors import table1, table3, table4, table5, table6, table7, detector
 from services import excel_service
 
 app = Flask(__name__)
