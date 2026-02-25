@@ -10,7 +10,7 @@
     <div class="container">
         <header>
             <h1>📄 Conversor de Tabelas</h1>
-            <p>Transforme Textos em Excel</p>
+            <p>Transforme textos brutos em arquivos Excel estruturados</p>
         </header>
 
         <div class="input-section">
@@ -19,6 +19,7 @@
             <div class="controls">
                 <select id="tableType">
                     <option value="auto">🔍 Detecção Automática</option>
+                   
                     <option value="tipo1">Tipo 1 (Item e Código | Desc | Valor R$)</option>
                     <option value="tipo2">Tipo 2 (Código | Item | Valor R$)</option>
                     <option value="tipo3">Tipo 3 (Código | Item)</option>
@@ -26,6 +27,7 @@
                     <option value="tipo5">Tipo 5 (Item | Código)</option>
                     <option value="tipo6">Tipo 6 (Item | Valor R$)</option>
                     <option value="tipo7">Tipo 7 (Código | Item | Valor)</option>
+                     <option value="tipo8">Tipo 8 (Item | Valor)</option>
                 </select>
                 <button onclick="processText()" class="btn-primary">⚡ Processar Dados</button>
             </div>

@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, jsonify, send_file
 import os
-from processors import table1,table2, table3, table4, table5, table6, table7, detector
+from processors import table1, table2, table3, table4, table5, table6, table7, table8, detector
 from services import excel_service
 
 app = Flask(__name__)
@@ -21,11 +21,11 @@ def process_data():
         table_type = detector.identify(text)
 
     processors = {
-    'tipo1': table1.process, 'tipo2': table2.process,
-    'tipo3': table3.process, 'tipo4': table4.process,
-    'tipo5': table5.process, 'tipo6': table6.process,
-    'tipo7': table7.process
-}
+        'tipo1': table1.process, 'tipo2': table2.process,
+        'tipo3': table3.process, 'tipo4': table4.process,
+        'tipo5': table5.process, 'tipo6': table6.process,
+        'tipo7': table7.process, 'tipo8': table8.process
+    }
 
     process_func = processors.get(table_type)
     if not process_func:
@@ -42,4 +42,4 @@ def download_excel():
     return send_file(filepath, as_attachment=True)
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(debug=True, port=5001)
