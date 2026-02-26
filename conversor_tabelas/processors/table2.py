@@ -1,16 +1,17 @@
 import re
-
- # 60033533 | Aompanhante de paciente menor de 18 anos e maior de 60 anos | R$ 100,00
-
-
+ 
+# OK !!
+ 
+# Almoço e jantar - 60033533 Acompanhante para pacientes menores de 18 ou maiores de 65 anos
+# R$ 100,00
+#
+# 60033533 | Almoço e jantar | R$ 100,00
 import re
 
 def process(text):
-    # Regex para: Código (8 dígitos) -> Descrição (texto) -> Valor (R$)
-    # m[0] = Código, m[1] = Descrição, m[2] = Valor
-    pattern = r'(\d{8})\s+(.*?)\s+R\$\s*([\d\.]+,\d{2})'
+    pattern = r'(\d{8})\s+(.*?)\s+(?:R\$\s*)?([\d\.]+,\d{2})'
     
-    # re.DOTALL para pegar descrições que pulam linha
+    
     matches = re.findall(pattern, text, re.DOTALL)
     
     results = []
@@ -18,7 +19,7 @@ def process(text):
         results.append({
             "Código": m[0].strip(),
             "Procedimento": m[1].strip().replace('\n', ' '),
-            "Valor": f"R$ {m[2]}"
+            "Valor": f"R$ {m[2]}" # Mantém o R$ no resultado final para a tabela
         })
         
     return results

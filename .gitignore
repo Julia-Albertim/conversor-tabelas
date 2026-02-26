@@ -3,3 +3,7 @@ echo "dist/" >> .gitignore
 echo "__pycache__/" >> .gitignore
 echo "*.spec" >> .gitignore
 echo "*.pyc" >> .gitignore
+build/
+dist/
+*.spec
+*.exe
